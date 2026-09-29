@@ -1,17 +1,21 @@
 ---
 name: release-posts
-description: Use when the user wants to announce a release, launch, changelog, shipped feature or merged work on social media — turns the repository's recent changes into per-network PostDaily drafts.
-argument-hint: "[version, tag or range — defaults to changes since the last tag]"
+description: Use when the user wants to announce a release, launch, changelog, shipped feature or merged work on social media — turns the release notes or the repository's recent changes into per-network PostDaily drafts.
 ---
 
 # Turning a release into social posts
 
-Write posts about what actually shipped, from the repository itself, and save
-them to PostDaily as drafts for the user to review.
+Write posts about what actually shipped, from the release notes or the
+repository itself, and save them to PostDaily as drafts for the user to review.
 
 ## 1. Find what shipped
 
-Use the range the user gave. Otherwise take everything since the latest tag:
+If you cannot read a repository (in ChatGPT, for example), ask the user to
+paste the release notes, the changelog section or a list of what shipped, and
+work only from that.
+
+If you can, use the range the user gave. Otherwise take everything since the
+latest tag:
 
 ```bash
 git describe --tags --abbrev=0

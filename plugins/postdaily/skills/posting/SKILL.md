@@ -6,7 +6,8 @@ description: Use when the user wants to write, draft, schedule, publish, resched
 # Posting with PostDaily
 
 PostDaily's tools come from the `postdaily` MCP server this plugin adds. If
-they are not available yet, the user has not signed in: ask them to run
+they are not available yet, the user has not connected PostDaily: ask them to
+connect it — in ChatGPT from the plugin's page, in Codex by running
 `codex mcp login postdaily` in a terminal. PostDaily opens in the browser to
 choose workspaces and an access level; after that the tools just work.
 
@@ -38,9 +39,9 @@ choose workspaces and an access level; after that the tools just work.
   the workspace's timezone — say which timezone you used.
 - **Publishing right now** (`mode: "now"`) and `retry_post` need
   `confirmPublish: true`. Before sending it, show the exact text, media and
-  channels and get a clear yes. Codex also asks the user to approve every
+  channels and get a clear yes. The app may also ask the user to approve
   `create_post`, `schedule_post`, `retry_post`, `cancel_post`, `delete_post`
-  and `bulk_create_posts` call before it goes out.
+  and `bulk_create_posts` calls; that approval does not replace this one.
 - If a result has `outcome: "needs_confirmation"` because of warnings, show the
   warnings, and only re-send with `confirmWarnings: true` if the user agrees.
 - Send an `idempotencyKey` (a fresh UUID) with every write, and reuse the same
@@ -62,5 +63,6 @@ choose workspaces and an access level; after that the tools just work.
 
 A connection is Full access, Drafts only or Read only, and only sees the tools
 its level allows. If a tool you need is missing, tell the user to reconnect
-with a higher level: `codex mcp logout postdaily`, then
-`codex mcp login postdaily` and choose it on the consent page.
+with a higher level and choose it on PostDaily's consent page — in ChatGPT by
+reconnecting the plugin, in Codex with `codex mcp logout postdaily`, then
+`codex mcp login postdaily`.
