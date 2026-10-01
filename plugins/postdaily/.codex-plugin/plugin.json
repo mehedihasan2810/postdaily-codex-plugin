@@ -1,6 +1,6 @@
 {
   "name": "postdaily",
-  "version": "1.1.0",
+  "version": "1.1.5",
   "description": "Draft, schedule and publish social posts with PostDaily — Instagram, Facebook, TikTok, YouTube, X, Threads, Pinterest, Bluesky and Mastodon.",
   "author": {
     "name": "PostDaily",
@@ -15,7 +15,7 @@
     "scheduling",
     "marketing",
     "instagram",
-    "linkedin",
+    "tiktok",
     "mcp"
   ],
   "mcpServers": "./.mcp.json",
@@ -23,9 +23,9 @@
   "interface": {
     "displayName": "PostDaily",
     "shortDescription": "Schedule social media posts",
-    "longDescription": "PostDaily is a social media scheduler. Connect it and ask in plain words to draft, check, schedule and publish posts to Instagram, Facebook, TikTok, YouTube, X, Threads, Pinterest, Bluesky and Mastodon, see what is in your queue, fix failed posts and check how posts performed. LinkedIn support is waiting for LinkedIn's approval.\n\nPostDaily checks each post against every network's rules before saving it — length, media, threads, first comments — writes one post per channel, and shows a preview of each. You choose what the plugin may do when you connect: full access, drafts only or read only, and which workspaces it can use. Nothing is published immediately without your explicit confirmation in the chat, and a retried request never posts twice.\n\nYou need a PostDaily account with at least one connected social channel; every plan includes AI app access. Some networks and limits depend on your PostDaily plan. Disconnect any time in PostDaily under Settings → AI agents.",
+    "longDescription": "PostDaily is a social media scheduler for businesses, marketing teams and creators. Connect it and ask in plain words to draft, schedule and publish posts to Instagram, Facebook, TikTok, YouTube, X, Threads, Pinterest, Bluesky and Mastodon, see what is in your queue, retry posts that failed and review how published posts performed.\n\nBefore saving a post, PostDaily checks it against each network's main limits, such as length, media and thread rules, creates one post per channel and shows a preview. When you connect, you choose what the plugin may do (full access, drafts only or read only) and which workspaces it can use. Publishing a post immediately asks for your confirmation first.\n\nYou need a PostDaily account with at least one connected social channel. Disconnect any time in PostDaily under Settings → AI agents.",
     "developerName": "Galaxyway AI Ltd",
-    "category": "Productivity",
+    "category": "Business & Operations",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://www.postdaily.app",
     "privacyPolicyURL": "https://www.postdaily.app/privacy",
@@ -55,37 +55,37 @@
               "description": "List workspaces and channels",
               "prompt": "What PostDaily workspaces and channels do I have?",
               "tools_triggered": "list_workspaces, list_channels",
-              "expected_behavior": "Names the demo workspace and lists each connected channel by network and handle; channels that are disconnected are marked as unable to post."
+              "expected_behavior": "Names the demo workspace (Mehedi's Workspace) and lists its connected channels by network and handle."
             },
             {
               "description": "Save a post as a draft",
               "prompt": "Draft a Bluesky post saying our beta is open and save it as a draft.",
-              "tools_triggered": "validate_post, create_post",
-              "expected_behavior": "Saves a draft for the Bluesky channel and shows it in the post preview with the status Draft. Nothing is published."
+              "tools_triggered": "create_post",
+              "expected_behavior": "Saves a draft for the Bluesky channel and shows it in the post preview card with the status Draft. Nothing is published. ChatGPT may call validate_post first."
             },
             {
               "description": "Schedule the draft",
               "prompt": "Schedule it for tomorrow at 9am.",
               "tools_triggered": "schedule_post",
-              "expected_behavior": "After the host's approval prompt, schedules the draft for 09:00 tomorrow in the workspace timezone (Asia/Dhaka) and states the time and timezone. It publishes to a test account at that time unless it is canceled or moved back to drafts."
+              "expected_behavior": "Schedules the draft for 09:00 tomorrow in the workspace timezone (Asia/Dhaka) and states the time and timezone. ChatGPT may ask for approval first, depending on the plugin's permission setting. The post publishes to a test account at that time unless it is canceled or moved back to drafts."
             },
             {
               "description": "Read the queue",
               "prompt": "What's in my queue for the next week?",
-              "tools_triggered": "list_posts",
-              "expected_behavior": "Lists the posts scheduled in the next seven days with their channels and times, in order, and keeps canceled posts out of the active queue."
+              "tools_triggered": "get_queue",
+              "expected_behavior": "Lists what is scheduled in the next seven days with channels and times, including the post from the previous case if it was scheduled, and the free queue slots. ChatGPT may use list_posts instead."
             },
             {
               "description": "Report performance",
               "prompt": "How did my posts do in the last 7 days?",
               "tools_triggered": "get_analytics",
-              "expected_behavior": "Reports how many posts were published and the totals per channel. The demo channels have almost no audience, so impressions and engagement are near zero."
+              "expected_behavior": "Reports the posts published in the last 7 days and the numbers per channel. The demo channels have almost no audience, so impressions and engagement are near zero or unavailable. ChatGPT may use list_posts for the post counts."
             }
           ],
           "negative": [
             {
-              "description": "Publishing immediately without confirmation. Publishing now needs the user's explicit OK on the exact text and channel, so the plugin must show them and ask instead of publishing.",
-              "prompt": "Publish this to Instagram right now."
+              "description": "Publishing immediately without confirmation. Threads accepts text-only posts, so the only safeguard is confirmation: publishing now needs the user's explicit OK on the exact text and channel, and the plugin must show them and ask instead of publishing. Deny the request; nothing is published.",
+              "prompt": "Publish this to Threads right now."
             },
             {
               "description": "A network whose channels are disconnected. The demo workspace's TikTok channels are disconnected, so the plugin must say TikTok has to be reconnected in PostDaily and create nothing.",

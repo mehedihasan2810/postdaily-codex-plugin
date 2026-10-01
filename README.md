@@ -29,10 +29,16 @@ it any time in PostDaily under **Settings → AI agents**.
   or PDF from your device — with `curl` where there is a terminal, through a
   PostDaily upload page where there is not) and `release-posts` (turn release
   notes or a repository's recent changes into per-network drafts).
-- **Approval on every call that can publish or remove**: Codex asks before
-  `create_post`, `schedule_post`, `retry_post`, `cancel_post`, `delete_post`
-  and `bulk_create_posts`. Reads, edits to drafts and uploads follow your usual
-  Codex approval settings.
+- **Nothing publishes immediately without your yes**: PostDaily refuses to
+  publish now unless you confirmed the exact text and channels, and the tools
+  that publish, cancel or delete are marked as such. Codex asks before tool
+  calls according to your Codex approval settings; to have it ask before every
+  PostDaily call, add this to `~/.codex/config.toml`:
+
+  ```toml
+  [plugins."postdaily".mcp_servers.postdaily]
+  default_tools_approval_mode = "prompt"
+  ```
 
 ## Development
 

@@ -39,7 +39,7 @@ Ask the user for a link (release notes, docs, blog post) if there is none.
 
 Call `list_channels` and write only for the channels the user wants:
 
-- **LinkedIn**: a short story of the problem and what changed, 3–5 short
+- **Facebook**: a short story of the problem and what changed, 3–5 short
   paragraphs, one link at the end.
 - **X, Threads, Bluesky, Mastodon**: one punchy post within the limit, or a
   short `thread` (2–4 parts) when there is more than one change.

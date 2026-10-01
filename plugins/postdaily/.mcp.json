@@ -1,15 +1,8 @@
 {
   "mcpServers": {
     "postdaily": {
-      "url": "https://mcp.postdaily.app/mcp",
-      "tools": {
-        "create_post": { "approval_mode": "prompt" },
-        "schedule_post": { "approval_mode": "prompt" },
-        "retry_post": { "approval_mode": "prompt" },
-        "cancel_post": { "approval_mode": "prompt" },
-        "delete_post": { "approval_mode": "prompt" },
-        "bulk_create_posts": { "approval_mode": "prompt" }
-      }
+      "type": "streamable-http",
+      "url": "https://mcp.postdaily.app/mcp"
     }
   }
 }

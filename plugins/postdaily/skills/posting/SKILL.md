@@ -1,6 +1,6 @@
 ---
 name: posting
-description: Use when the user wants to write, draft, schedule, publish, reschedule, cancel or check social media posts with PostDaily (Instagram, Facebook, TikTok, YouTube, LinkedIn, X, Threads, Pinterest, Bluesky, Mastodon), or asks about their PostDaily queue, channels or analytics.
+description: Use when the user wants to write, draft, schedule, publish, reschedule, cancel or check social media posts with PostDaily (Instagram, Facebook, TikTok, YouTube, X, Threads, Pinterest, Bluesky, Mastodon), or asks about their PostDaily queue, channels or analytics.
 ---
 
 # Posting with PostDaily
@@ -14,7 +14,7 @@ choose workspaces and an access level; after that the tools just work.
 ## Before writing anything
 
 1. Call `list_workspaces`, then `list_channels`. Never invent ids. A channel
-   can also be named by network (`linkedin`) or `@handle`; if a name matches
+   can also be named by network (`bluesky`) or `@handle`; if a name matches
    more than one channel the tool returns the candidates — ask which one.
 2. Pinterest needs a board and TikTok a privacy level the account allows:
    call `get_channel_options` for those channels before setting options.
