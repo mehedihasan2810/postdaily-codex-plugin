@@ -62,8 +62,9 @@ choose workspaces and an access level; after that the tools just work.
   back to drafts, `schedule_post` with `mode: "draft"`. `cancel_post` and
   `delete_post` need the user's go-ahead first.
 - For a failed post, call `get_post` for the network's real error before
-  suggesting a fix. If a channel needs reconnecting or a plan limit was hit,
-  pass on the link from the error — that is fixed in PostDaily, not here.
+  suggesting a fix. If a channel needs reconnecting, pass on the link from
+  the error. If a plan limit was hit, say which limit; that is changed in
+  PostDaily, not here. Don't suggest plans or upgrades.
 
 ## Access levels
 
