@@ -46,7 +46,7 @@ This repository is a Codex plugin marketplace
 (`.agents/plugins/marketplace.json`) with one plugin,
 [`plugins/postdaily`](./plugins/postdaily). The same plugin is the package
 submitted to OpenAI's plugin directory, which serves ChatGPT and Codex, so its
-manifest also carries the directory listing, screenshots and review cases. It
+manifest also carries the directory listing and review cases. It
 is published from PostDaily's main codebase, where the plugin is kept in step
 with the MCP server it wraps and checked against the directory's rules. To try
 an install without touching your own Codex setup, point `CODEX_HOME` at an
