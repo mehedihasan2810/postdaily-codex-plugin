@@ -21,7 +21,7 @@ it any time in PostDaily under **Settings → AI agents**.
 
 ## What you get
 
-- **PostDaily's MCP server** (`https://mcp.postdaily.app/mcp`): up to 20 tools
+- **PostDaily's MCP server** (`https://mcp.postdaily.app/mcp`): up to 22 tools
   for channels, posts, the queue, media and analytics, plus prompts such as
   planning a week of posts.
 - **Skills**: `posting` (drafts by default, one text per network, validation,
@@ -45,7 +45,7 @@ it any time in PostDaily under **Settings → AI agents**.
 This repository is a Codex plugin marketplace
 (`.agents/plugins/marketplace.json`) with one plugin,
 [`plugins/postdaily`](./plugins/postdaily). The same plugin is the package
-submitted to OpenAI's plugin directory, which serves ChatGPT and Codex, so its
+published in OpenAI's plugin directory, which serves ChatGPT and Codex, so its
 manifest also carries the directory listing and review cases. It
 is published from PostDaily's main codebase, where the plugin is kept in step
 with the MCP server it wraps and checked against the directory's rules. To try
